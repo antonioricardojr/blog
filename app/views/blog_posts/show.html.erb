@@ -1,6 +1,13 @@
-<h1><%= @blog_post.title %></h1>
-<p><%= @blog_post.body %></p>
-<% if user_signed_in? %>
-    <%= link_to 'Edit', edit_blog_post_path %>
-    <%= button_to 'Delete', blog_post_path(@blog_post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-<% end %>
+<div class="container mx-auto px-4 py-8">
+  <div class="bg-white shadow-md rounded-lg p-6">
+    <h1 class="text-3xl font-bold text-gray-800 mb-4"><%= @blog_post.title %></h1>
+    <p class="text-gray-700 leading-relaxed mb-6"><%= @blog_post.body %></p>
+
+    <% if user_signed_in? %>
+      <div class="flex space-x-4">
+        <%= link_to 'Edit', edit_blog_post_path(@blog_post), class: "bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700" %>
+        <%= button_to 'Delete', blog_post_path(@blog_post), method: :delete, data: { confirm: 'Are you sure?' }, class: "bg-red-500 text-white font-semibold py-2 px-4 rounded hover:bg-red-700" %>
+      </div>
+    <% end %>
+  </div>
+</div>

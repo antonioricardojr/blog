@@ -1,8 +1,20 @@
-<h1>Blog Posts</h1>
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-8 text-center text-gray-800">Blog Posts</h1>
 
-<%= link_to "Create New Blog Post", new_blog_post_path %>
+  <div class="mb-8 text-right">
+    <%= link_to "Create New Blog Post", new_blog_post_path, class: "bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700" %>
+  </div>
 
-<% @blog_posts.each do |blog_post| %>
-  <h2><%= link_to blog_post.title, blog_post %></h2>
-  <p><%= blog_post.body %></p>
-<% end %>
+  <div class="space-y-8">
+    <% @blog_posts.each do |blog_post| %>
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+          <%= link_to blog_post.title, blog_post, class: "hover:underline text-blue-600" %>
+        </h2>
+        <p class="text-gray-600">
+          <%= truncate(blog_post.body, length: 200) %> <!-- Truncate the body to a reasonable length -->
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
