@@ -1,2 +1,4 @@
 <h1><%= @blog_post.title %></h1>
 <p><%= @blog_post.body %></p>
+<button><%= link_to 'Edit', edit_blog_post_path %></button>
+<%= button_to 'Delete', blog_post_path(@blog_post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
