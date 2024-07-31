@@ -1,5 +1,7 @@
 class BlogPostsController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
     before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+
     def index
         @blog_posts = BlogPost.all
     end
@@ -52,5 +54,9 @@ class BlogPostsController < ApplicationController
 
     def set_blog_post
         @blog_post = BlogPost.find(params[:id])
+    end
+
+    def authenticate_user!
+        redirect_to new_user_session_path, alert: "You must sign in or sign up to continue." unless user_signed_in?
     end
 end
