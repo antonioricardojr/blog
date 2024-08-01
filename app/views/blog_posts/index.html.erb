@@ -1,9 +1,11 @@
 <div class="container mx-auto px-4 py-8">
   <h1 class="text-4xl font-bold mb-8 text-center text-gray-800">Blog Posts</h1>
 
-  <div class="mb-8 text-right">
-    <%= link_to "Create New Blog Post", new_blog_post_path, class: "bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="mb-8 text-right">
+      <%= link_to "Create New Blog Post", new_blog_post_path, class: "bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700" %>
+    </div>
+  <% end %>
 
   <div class="space-y-8">
     <% @blog_posts.each do |blog_post| %>
