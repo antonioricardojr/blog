@@ -1,7 +1,7 @@
 <div class="container mx-auto px-4 py-8">
   <div class="bg-white shadow-md rounded-lg p-6">
     <h1 class="text-3xl font-bold text-gray-800 mb-4"><%= @blog_post.title %></h1>
-    <p class="text-gray-700 leading-relaxed mb-6"><%= @blog_post.body %></p>
+    <p class="text-gray-700 leading-relaxed mb-6"><%= @blog_post.content %></p>
 
     <% if user_signed_in? %>
       <div class="flex space-x-4">

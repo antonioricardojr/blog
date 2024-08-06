@@ -21,7 +21,7 @@
         <% end %>
       </div>
       <p class="text-gray-600">
-        <%= truncate(blog_post.body, length: 200) %> <!-- Truncate the body to a reasonable length -->
+        <%= blog_post.content %>
       </p>
     </div>
   <% end %>
