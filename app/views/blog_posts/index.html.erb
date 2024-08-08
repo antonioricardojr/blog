@@ -7,24 +7,28 @@
     </div>
   <% end %>
 
-<div class="space-y-8">
-  <% @blog_posts.each do |blog_post| %>
-    <div class="bg-white shadow-md rounded-lg p-6">
-      <div class="flex items-center mb-4">
-        <h2 class="text-2xl font-semibold text-gray-800">
-          <%= link_to blog_post.title, blog_post, class: "hover:underline text-blue-600" %>
-        </h2>
-        <% if blog_post.draft? %>
-          <span class="ml-4 inline-block bg-yellow-500 text-white text-xs font-semibold py-1 px-2 rounded">Draft</span>
-        <% elsif blog_post.published? %>
-          <span class="ml-4 inline-block bg-green-500 text-white text-xs font-semibold py-1 px-2 rounded">Published</span>
-        <% end %>
+  <div class="space-y-8 w-full">
+    <% @blog_posts.each do |blog_post| %>
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <div class="flex items-center mb-4">
+          <h2 class="text-2xl font-semibold text-gray-800">
+            <%= link_to blog_post.title, blog_post, class: "hover:underline text-blue-600" %>
+          </h2>
+          <% if blog_post.draft? %>
+            <span class="ml-4 inline-block bg-yellow-500 text-white text-xs font-semibold py-1 px-2 rounded">Draft</span>
+          <% elsif blog_post.published? %>
+            <span class="ml-4 inline-block bg-green-500 text-white text-xs font-semibold py-1 px-2 rounded">Published</span>
+          <% end %>
+        </div>
+        <p class="text-gray-600">
+          <%= blog_post.content %>
+        </p>
       </div>
-      <p class="text-gray-600">
-        <%= blog_post.content %>
-      </p>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
+<!-- Centering the Pagy Navigation -->
+<div class="flex justify-center mx-auto px-4 py-8" style="justify-content: center;">
+  <%== pagy_nav_with_tailwind(@pagy) %>
 </div>
