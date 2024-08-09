@@ -1,5 +1,6 @@
 <div class="container mx-auto px-4 py-8">
   <div class="bg-white shadow-md rounded-lg p-6">
+    <%= image_tag @blog_post.cover_image if @blog_post.cover_image.present? %>
     <h1 class="text-3xl font-bold text-gray-800 mb-4"><%= @blog_post.title %></h1>
     <p class="text-gray-700 leading-relaxed mb-6"><%= @blog_post.content %></p>
 

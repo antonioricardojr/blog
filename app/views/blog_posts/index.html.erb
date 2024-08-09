@@ -20,6 +20,7 @@
             <span class="ml-4 inline-block bg-green-500 text-white text-xs font-semibold py-1 px-2 rounded">Published</span>
           <% end %>
         </div>
+        <%= image_tag blog_post.cover_image if blog_post.cover_image.present? %>
         <p class="text-gray-600">
           <%= blog_post.content %>
         </p>
